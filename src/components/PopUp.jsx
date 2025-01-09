@@ -6,31 +6,43 @@ export const PopUp = ({ onClose, position }) => {
         <Box
             sx={{
                 position: 'absolute',
-                top: position.y +  window.scrollY, 
-                left: position.x  +  window.scrollX, 
+                top: position.y + window.scrollY,
+                left: position.x + window.scrollX,
                 transform: 'translate(-50%, -50%)',
-                width: '300px', 
-                height: '200px', 
-                borderRadius: '20px',
-                background: 'linear-gradient(to bottom left, #297FB8, #181818)',
-                border: '2px solid #FFFFFF',
+                width: '16vw',
+                height: '17vh',
+                gap: '0px',
+                opacity: '0px',
+                borderRadius: '23px',
+                background: ' linear-gradient(to bottom left, #49ACEF, #050505, #050505, #050505)',
+                border: '1.5px solid #696969',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
                 padding: '5%',
-                zIndex: 1100, 
+                zIndex: 1100,
+                fontFamily: 'Open Sans',
+                fontWeight: 400,
+                color: '#FFFFFF',
             }}>
             <Button onClick={onClose} sx={{
+                fontFamily: 'Inter',
                 color: '#FFFFFF',
-                fontSize: '40px',
+                fontSize: '50px',
                 position: 'absolute',
-                top: '10px',
-                left: '10px',
+                height: '5',
+                lineHeight: '24.2px',
+                top: '0.7vh',
+                left: '0.2vw',
             }}>
-                &times; 
+                &times;
             </Button>
-            <hr style={{ color: '#FFFFFF', position: 'absolute', top: '20%', left: 0, right: 0, margin: '0' }} />
+            <hr
+                style={{
+                    borderBottom: 'none', height: '0.2px ', position: 'absolute', top: '13%', left: 0, right: 0, margin: '0'
+                }}
+            />
             <Box
                 sx={{
                     display: 'flex',
@@ -40,12 +52,11 @@ export const PopUp = ({ onClose, position }) => {
                     variant="h4"
                     sx={{
                         marginBottom: '7%',
-                        fontFamily: 'zrima',
                         color: ' #FFD823',
                         textAlign: 'right',
-                        alignSelf: 'flex-end',
                         lineHeight: 1,
-                        marginLeft: '5rem',
+                        marginLeft: '3.8rem',
+                        fontFamily: 'Open Sans',
                     }}
                 >
                     ? רוצה להיות חלק
@@ -56,20 +67,14 @@ export const PopUp = ({ onClose, position }) => {
                 variant='p'
                 sx={{
                     fontSize: '20px',
-                    fontFamily: 'zrima',
-                    color: '#FFFFFF',
-                    fontWeight: 400,
                     textAlign: 'right',
-                    width: '100%',
                     alignSelf: 'flex-end',
-                    marginLeft: '55%',
                     textDecoration: 'none'
                 }}
             >
 
                 <span>מלאי את </span>
-                <a href="https://github.com/rachel-yos" style={{ color: ' #3598DB' }}>
-                    <span>הטופס</span></a>
+                <span style={{ cursor: 'pointer', color: ' #3598DB', textDecoration: 'underline' }}>הטופס</span>
                 <br />
                 <span>כשתקבלי מייל שאושרת</span>
                 <br />
@@ -78,17 +83,13 @@ export const PopUp = ({ onClose, position }) => {
             <Typography
                 variant='p'
                 sx={{
-                    fontFamily: 'zrima',
-                    color: '#FFFFFF',
                     textAlign: 'right',
-                    width: '100%',
                     alignSelf: 'flex-start',
-                    marginLeft: '0.5%',
                     fontSize: '20px',
                     textAlign: 'justify',
                     position: 'absolute',
-                    bottom: 15,
-                    left: 15
+                    bottom: 20,
+                    left: 45
                 }}
             >
                 מחכות לך

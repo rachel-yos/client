@@ -29,7 +29,8 @@ export const Home = () => {
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                        backgroundColor: '#FFFFFF',
+                        opacity:'5%',
                         zIndex: 1000, 
                         pointerEvents: 'none',
                     }}
@@ -217,6 +218,7 @@ export const Home = () => {
                                 width: '40%',
                                 alignSelf: 'flex-start',
                                 marginLeft: '10%',
+                                cursor: 'pointer',
                             }}
                             onClick={togglePopup} 
                         >
