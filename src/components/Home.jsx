@@ -1,43 +1,20 @@
-import React, { useState } from 'react';  
 import { Box, Button, Container, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import MarkunreadIcon from '@mui/icons-material/Markunread';
 import CodeIcon from '@mui/icons-material/Code';
 import Diversity2Icon from '@mui/icons-material/Diversity2';
-import { PopUp } from './PopUp';
+import { PopUp } from './Dialog';
+import { useState } from 'react';
 
 export const Home = () => {
-    const [isPopupVisible, setPopupVisible] = useState(false); 
-    const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 }); 
+    const [openDialog, setOpenDialog] = useState(false);
 
-    const togglePopup = (event) => {
-        const { clientX, clientY } = event; 
-        setPopupPosition({ x: clientX, y: clientY }); 
-        setPopupVisible(!isPopupVisible); 
+    const togglePopup = () => {
+        setOpenDialog(!openDialog);
     };
-
     return (
         <>
-            {isPopupVisible && (
-                <PopUp onClose={togglePopup} position={popupPosition} /> 
-            )}
-            {isPopupVisible && (
-                <Box
-                    sx={{
-                        position: 'fixed',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        backgroundColor: '#FFFFFF',
-                        opacity:'5%',
-                        zIndex: 1000, 
-                        pointerEvents: 'none',
-                    }}
-                />
-            )}
-
-            <Box sx={{ backgroundColor: 'background.default', position: 'relative', opacity: isPopupVisible ? 0.5 : 1 }}>
+            <Box sx={{ backgroundColor: 'background.default', position: 'relative' }}>
                 <Container
                     sx={{
                         height: '200vh',
@@ -130,7 +107,7 @@ export const Home = () => {
                                 color: 'grey.100',
                                 maxWidth: '90%',
                                 lineHeight: 1.2,
-                                mb: 2,
+                                mb: 2, 
                             }}>
                             הדיונים שלנו: כאן מנהלים שיח פתוח על אתגרי היומיום בהייטק,
                             ניתוח סוגיות מקצועיות, ובדיקת מגמות חדשות בתחום.
@@ -159,30 +136,31 @@ export const Home = () => {
                     <Box
                         sx={{
                             position: 'absolute',
-                            top: '74%',
+                            top: '74%', 
                             left: '50%',
-                            transform: 'translate(-50%, -50%)',
+                            transform: 'translate(-50%, -50%)', 
                             width: '33%',
                             height: '15%',
-                            borderRadius: '20px',
-                            background: 'linear-gradient(to bottom left, #297FB8, #181818, #181818, #181818)',
-                            border: '2px solid #FFFFFF',
+                            borderRadius: '20px', 
+                            background: 'linear-gradient(to bottom left, #297FB8, #181818, #181818, #181818)', 
+                            border: '2px solid #FFFFFF', 
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
                             justifyContent: 'center',
                             padding: '5%',
-                        }}>
+                            cursor:  'pointer',
+                        }}onClick={togglePopup}>
                         <Diversity2Icon
                             sx={{
-                                color: 'secondary.main',
-                                fontSize: '3rem',
+                                color: 'secondary.main', 
+                                fontSize: '3rem', 
                             }} />
                         <br></br>
                         <Box
                             sx={{
-                                display: 'flex',
-                                justifyContent: 'center',
+                                display: 'flex', 
+                                justifyContent: 'center', 
                             }}>
                             <Typography
                                 variant="h3"
@@ -207,26 +185,26 @@ export const Home = () => {
                             >
                                 עדין לא מחוברת
                             </Typography>
+
                         </Box>
                         <Typography
                             variant="h2"
                             sx={{
                                 fontFamily: 'zrima',
-                                color: '#FFBC39',
-                                textAlign: 'right',
+                                color: '#FFBC39', 
+                                textAlign: 'right', 
                                 lineHeight: 1,
-                                width: '40%',
-                                alignSelf: 'flex-start',
-                                marginLeft: '10%',
-                                cursor: 'pointer',
+                                width: '40%', 
+                                alignSelf: 'flex-start', 
+                                marginLeft: '10%', 
                             }}
-                            onClick={togglePopup} 
                         >
                             הצטרפי
                         </Typography>
                     </Box>
                 </Container >
             </Box >
+            <PopUp open={openDialog} onClose={togglePopup} /> 
 
             <Box sx={{ borderTop: '1px solid white', backgroundColor: 'background.default', padding: '2%' }}>
                 <Container maxWidth="lg">
