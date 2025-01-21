@@ -3,17 +3,28 @@ import * as React from 'react';
 import { styled, useTheme, Dialog, DialogTitle, DialogContent, IconButton, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
-const BootstrapDialog = styled(Dialog)(() => ({
+const hexToRgba = (hex, alpha) => {
+    let r = parseInt(hex.slice(1, 3), 16);
+    let g = parseInt(hex.slice(3, 5), 16);
+    let b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+};
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiPaper-root': {
         width: '454.81px',
         height: '316px',
         borderRadius: '23px',
         border: '1.5px #696969 solid',
-        background: 'linear-gradient(to bottom left, #297FB8, #181818, #181818, #181818)',
+        background: `linear-gradient(to bottom left, 
+        ${theme.palette.primary.dark},
+        ${theme.palette.background.default},
+        ${theme.palette.background.default},
+        ${theme.palette.background.default})`,
         textAlign: 'right',
     },
     '& .MuiBackdrop-root': {
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        backgroundColor: hexToRgba(theme.palette.text.primary, 0.5),
     },
     '& .css-10bxh4q-MuiDialogContent-root': {
         margin: 0,
