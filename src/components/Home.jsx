@@ -3,7 +3,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import MarkunreadIcon from '@mui/icons-material/Markunread';
 import CodeIcon from '@mui/icons-material/Code';
 import Diversity2Icon from '@mui/icons-material/Diversity2';
-import { PopUp } from './Dialog';
+import { PopUp } from './PopUp';
 import { useState } from 'react';
 
 export const Home = () => {

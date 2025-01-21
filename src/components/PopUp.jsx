@@ -1,101 +1,91 @@
-import React from 'react';
-import { Box, Button, Typography } from '@mui/material';
 
-export const PopUp = ({ onClose, position }) => {
+import * as React from 'react';
+import { styled, useTheme, Dialog, DialogTitle, DialogContent, IconButton, Typography } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+
+const BootstrapDialog = styled(Dialog)(() => ({
+    '& .MuiPaper-root': {
+        width: '454.81px',
+        height: '316px',
+        borderRadius: '23px',
+        border: '1.5px #696969 solid',
+        background: 'linear-gradient(to bottom left, #297FB8, #181818, #181818, #181818)',
+        textAlign: 'right',
+    },
+    '& .MuiBackdrop-root': {
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    },
+    '& .css-10bxh4q-MuiDialogContent-root': {
+        margin: 0,
+        letterSpacing: '0.00938em',
+        marginBottom: '0.35em',
+    },
+    '& .css-vjrxpc-MuiTypography-root': {
+        fontSize: '20px',
+        fontFamily: 'Open Sans',
+        margin: 0,
+        lineHeight: '27.24px',
+    },
+    '& .css-osx6jf-MuiTypography-root': {
+        fontSize: '20px',
+        fontFamily: 'Open Sans',
+        margin: 0,
+        lineHeight: '27.24px',
+    }
+}));
+
+export function PopUp({ open, onClose }) {
+    const theme = useTheme();
+
     return (
-        <Box
-            sx={{
-                position: 'absolute',
-                top: position.y + window.scrollY,
-                left: position.x + window.scrollX,
-                transform: 'translate(-50%, -50%)',
-                width: '16vw',
-                height: '17vh',
-                gap: '0px',
-                opacity: '0px',
-                borderRadius: '23px',
-                background: ' linear-gradient(to bottom left, #49ACEF, #050505, #050505, #050505)',
-                border: '1.5px solid #696969',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '5%',
-                zIndex: 1100,
-                fontFamily: 'Open Sans',
-                fontWeight: 400,
-                color: '#FFFFFF',
-            }}>
-            <Button onClick={onClose} sx={{
-                fontFamily: 'Inter',
-                color: '#FFFFFF',
-                fontSize: '50px',
-                position: 'absolute',
-                height: '5',
-                lineHeight: '24.2px',
-                top: '0.7vh',
-                left: '0.2vw',
-            }}>
-                &times;
-            </Button>
-            <hr
-                style={{
-                    borderBottom: 'none', height: '0.2px ', position: 'absolute', top: '13%', left: 0, right: 0, margin: '0'
-                }}
-            />
-            <Box
-                sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                }}>
-                <Typography
-                    variant="h4"
+        <>
+            <BootstrapDialog open={open}>
+                <DialogTitle sx={{ m: 0, p: 3 }}>
+                </DialogTitle>
+                <IconButton
+                    onClick={onClose}
                     sx={{
-                        marginBottom: '7%',
-                        color: ' #FFD823',
-                        textAlign: 'right',
-                        lineHeight: 1,
-                        marginLeft: '3.8rem',
-                        fontFamily: 'Open Sans',
+                        position: 'absolute',
+                        left: 8,
+                        top: 8,
+                        color: theme.palette.text.primary,
                     }}
                 >
-                    ? רוצה להיות חלק
-                </Typography>
-
-            </Box>
-            <Typography
-                variant='p'
-                sx={{
-                    fontSize: '20px',
-                    textAlign: 'right',
-                    alignSelf: 'flex-end',
-                    textDecoration: 'none'
-                }}
-            >
-
-                <span>מלאי את </span>
-                <span style={{ cursor: 'pointer', color: ' #3598DB', textDecoration: 'underline' }}>הטופס</span>
-                <br />
-                <span>כשתקבלי מייל שאושרת</span>
-                <br />
-                הצטרפי אלינו
-            </Typography>
-            <Typography
-                variant='p'
-                sx={{
-                    textAlign: 'right',
-                    alignSelf: 'flex-start',
-                    fontSize: '20px',
-                    textAlign: 'justify',
-                    position: 'absolute',
-                    bottom: 20,
-                    left: 45
-                }}
-            >
-                מחכות לך
-                <br />
-                Npm Start <span>צוות</span>
-            </Typography>
-        </Box>
+                    <CloseIcon />
+                </IconButton>
+                <DialogContent dividers>
+                    <Typography gutterBottom sx={{
+                        color: theme.palette.secondary.main,
+                        fontFamily: 'Open Sans',
+                        fontSize: '32px',
+                        lineHeight: '43.58px',
+                        marginTop: '7%'
+                    }}>
+                        ?רוצה להיות חלק
+                    </Typography>
+                    <Typography gutterBottom>
+                        מלאי את <Typography component="span" sx={{
+                            color: '#3598DB',
+                            fontFamily: 'Open Sans',
+                            fontSize: '20px',
+                            textDecoration: 'underline',
+                            textDecorationThickness: '1px',
+                        }}>הטופס</Typography>
+                    </Typography>
+                    <Typography gutterBottom>
+                        כשתקבלי מייל שאושרת
+                    </Typography>
+                    <Typography gutterBottom>
+                        הצטרפי אלינו
+                    </Typography>
+                    <Typography sx={{ textAlign: 'left' }}>
+                        מחכות לך
+                    </Typography>
+                    <Typography sx={{ textAlign: 'left' }}>
+                        Npm Start צוות
+                    </Typography>
+                </DialogContent>
+            </BootstrapDialog>
+        </>
     );
-};
+}
