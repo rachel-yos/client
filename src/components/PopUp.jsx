@@ -25,13 +25,13 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
         marginBottom: '0.35em',
     },
     '& .css-vjrxpc-MuiTypography-root': {
-        fontSize: '20px',
+        fontSize: '1.33rem',
         fontFamily: 'Open Sans',
         margin: 0,
         lineHeight: '27.24px',
     },
     '& .css-osx6jf-MuiTypography-root': {
-        fontSize: '20px',
+        fontSize: '1.33rem',
         fontFamily: 'Open Sans',
         margin: 0,
         lineHeight: '27.24px',
@@ -61,7 +61,7 @@ export function PopUp({ open, onClose }) {
                     <Typography gutterBottom sx={{
                         color: theme.palette.secondary.main,
                         fontFamily: 'Open Sans',
-                        fontSize: '32px',
+                        fontSize: '2.2em',
                         lineHeight: '43.58px',
                         marginTop: '7%'
                     }}>
@@ -69,9 +69,9 @@ export function PopUp({ open, onClose }) {
                     </Typography>
                     <Typography gutterBottom>
                         מלאי את <Typography component="span" sx={{
-                            color: '#3598DB',
+                            color: theme.palette.text.link,
                             fontFamily: 'Open Sans',
-                            fontSize: '20px',
+                            fontSize: '1.33rem',
                             textDecoration: 'underline',
                             textDecorationThickness: '1px',
                         }}>הטופס</Typography>
