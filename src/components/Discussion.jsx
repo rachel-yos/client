@@ -31,7 +31,7 @@ export const Discussion = ({ props }) => {
                 justifyContent: 'space-between',
                 width: 947,
                 height: 74,
-                marginTop: 1,
+                marginTop: 3,
                 padding: 1.5,
                 color: theme.palette.text.primary,
                 background: `linear-gradient(
@@ -39,8 +39,7 @@ export const Discussion = ({ props }) => {
                             ${theme.palette.background.default} 50%,
                             ${theme.palette.primary.dark})`,
                 borderRadius: '23px',
-                border: `solid 1.5px ${theme.palette.grey[300]}`
-
+                border: `solid 1.5px ${theme.palette.grey[100]}`
             }}>
             <Typography sx={typographyStyle}>
                 {props.comments[props.comments.length - 1].date.toLocaleDateString()} :תגובה אחרונה
