@@ -1,7 +1,9 @@
 import { Box, TextField, Typography, useTheme } from '@mui/material';
+import { IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import { ActiveControl } from './ActiveControl';
 
-export const NewDiscussion = () => {
+export const NewDiscussion = ({ onClose }) => {
     const theme = useTheme();
 
     const typhographyStyle = {
@@ -30,13 +32,25 @@ export const NewDiscussion = () => {
 
             }}
         >
+            <IconButton
+                onClick={onClose}
+                sx={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                    mt:'1%',
+                    color: theme.palette.text.primary,
+                }}
+            >
+                <CloseIcon />
+            </IconButton>
             <Typography variant="h6"
                 sx={{
                     color: theme.palette.primary.light,
                     fontFamily: 'Open Sans',
                     fontWeight: 700,
                     fontSize: '2.08vw',
-                    mt: 8
+                    mt: 7.5
                 }}>
                 יצירת דיון חדש
             </Typography>
